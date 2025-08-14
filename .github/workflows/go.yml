@@ -109,6 +109,11 @@ jobs:
         with:
           name: code
           path: .
-      - name: Curl application
+      - name: Start application
+        run: docker compose up -d
+      - name: Curl frontend
         run: |
           curl localhost:8080
+      - name: Curl backend
+        run: |
+          curl localhost:9000/fortunes

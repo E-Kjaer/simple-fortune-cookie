@@ -1,9 +1,9 @@
 function getRandom() {
-    get("/proxy/8080/api/random");
+    get("/api/random");
 }
 
 function getAll() {
-    get("/proxy/8080/api/all");
+    get("/api/all");
 }
 
 function get(endpoint) {
@@ -37,7 +37,7 @@ function addCookie(e) {
                     `Error: ${this.status}, ${this.responseText}`
             }
         };
-        xhttp.open("POST", "/proxy/8080/api/add", true);
+        xhttp.open("POST", "/api/add", true);
         xhttp.setRequestHeader('Content-type', 'application/json');
         xhttp.send(JSON.stringify(params));
     } catch (e) {

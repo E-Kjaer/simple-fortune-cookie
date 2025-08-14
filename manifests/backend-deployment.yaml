@@ -17,3 +17,18 @@ spec:
         image: ekjaer/backend:latest
         ports:
         - containerPort: 9000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-svc
+spec:
+  selector:
+    app: backend
+  ports:
+  - port: 9000
+    protocol: TCP
+    targetPort: 9000
+  type: ClusterIP

@@ -17,7 +17,6 @@ spec:
         image: ekjaer/backend:latest
         ports:
         - containerPort: 9000
-
 ---
 
 apiVersion: v1

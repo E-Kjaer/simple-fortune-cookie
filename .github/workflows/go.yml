@@ -53,3 +53,26 @@ jobs:
         cd frontend
         go test
         cd ..
+  docker-frontend:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Login to Dockerhub
+      uses: docker/login-action@v3
+      with:
+        username: ${{secrets.DOCKERHUB_USERNAME}}
+        password: ${{secrets.DOCKERHUB_TOKEN}}
+    - name: Download code
+      uses: actions/download-artifact@v5
+      with:
+        name: code
+        path: .
+    - name: Build and push Docker image frontend
+      uses: docker/build-push-action@v6.18.0
+      with:
+        context: ./frontend
+        push: true
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/frontend:latest
+          

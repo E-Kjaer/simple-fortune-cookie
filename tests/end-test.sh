@@ -11,7 +11,6 @@ then
     # if the keyword is in the content
     echo "The frontend is working"
     response=$(curl -s $backend)
-    #if curl -s "$backend" == "$frontend_keyword"
     if [[ "$response" == $backend_keyword ]]
     then
         echo "Everything works"

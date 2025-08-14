@@ -1,7 +1,7 @@
 #!/bin/bash
 
 frontend="localhost:8080" 
-backend="localhost:9000" 
+backend="localhost:9000/fortunes" 
 
 frontend_keyword="<!DOCTYPE html>" # enter the keyword for test content
 backend_keyword="[]"

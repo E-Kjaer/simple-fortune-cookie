@@ -111,9 +111,5 @@ jobs:
           path: .
       - name: Start application
         run: docker compose up -d
-      - name: Curl frontend
-        run: |
-          curl localhost:8080
-      - name: Curl backend
-        run: |
-          curl localhost:9000/fortunes
+      - name: Curl application
+        run: tests/end-test.sh

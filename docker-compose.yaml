@@ -1,0 +1,14 @@
+services:
+  frontend-container:
+    environment:
+      - BACKEND_DNS=backend-container
+      - BACKEND_PORT=9000
+    depends_on: 
+      - backend-container
+    build: ./frontend
+    ports: 
+      - "8080:8080"
+  backend-container:
+    build: ./backend
+    ports:
+      - "9000:9000"

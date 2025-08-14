@@ -109,8 +109,6 @@ jobs:
         with:
           name: code
           path: .
-      - name: Start application
-        run: docker compose up -d
       - name: Curl application
         run: |
           curl localhost:8080

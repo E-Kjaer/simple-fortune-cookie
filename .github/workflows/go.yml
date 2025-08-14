@@ -47,5 +47,9 @@ jobs:
       with:
         name: code
         path: .
+        
     - name: Test frontend
-      run: go test -v ./frontend
+      run: |
+        cd frontend
+        go test
+        cd ..

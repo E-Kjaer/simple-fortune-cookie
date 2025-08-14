@@ -63,4 +63,5 @@ jobs:
         context: ./frontend
         push: true
         github-token: ${{ github.token }}
+        tags: user/frontend:latest
           

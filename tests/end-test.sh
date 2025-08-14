@@ -10,7 +10,7 @@ if curl -s "$frontend" | grep "$frontend_keyword"
 then
     # if the keyword is in the content
     echo "The frontend is working"
-    if curl -s "$backend" | grep "$frontend_keyword"
+    if curl -s "$backend" == "$frontend_keyword"
     then
         echo "Everything works"
         exit 0

@@ -1,36 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: db
   template:
     metadata:
       labels:
-        app: backend
+        app: db
     spec:
       containers:
-      - name: backend
-        image: ekjaer/backend:latest
+      - name: db
+        image: redis:latest
         ports:
-        - containerPort: 9000
-        env:
-        - name: REDIS_DNS
-          value: db-svc
+        - containerPort: 5540
+        - containerPort: 6379
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-svc
+  name: db-svc
 spec:
   selector:
-    app: backend
+    app: db
   ports:
-  - port: 9000
+  - port: 6379
     protocol: TCP
-    targetPort: 9000
+    targetPort: 6379
   type: ClusterIP
